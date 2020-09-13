@@ -12,7 +12,11 @@ http.createServer(function (request, response) {
       'Set-Cookie' : [
          'yummy_cookie=choco', 
          'tasty_cookie=strawberry',
-         `Permanent_cookie=model_cookies; Max-Age=${60*60*24*30}`
+         `Permanent_cookie=model_cookies; Max-Age=${60*60*24*30}`,
+         'Secure=Secure; Secure', //secure cookie tag which shows in https only
+         'HttpOnly = HttpOnly; HttpOnly',  // Can be seen Http only, cannot be shown in JavaScript in the console.
+         'Path=Path; Path=/cookie',    // cookie in certain route only "/cookie"
+         'Domain=Domain; Domain=o2.org'  // works in certain doman only
       ]
    })
    response.end('Cookie!!');
